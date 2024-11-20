@@ -1,0 +1,33 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 800,
+  "height": 600,
+  "data": {
+    "url": "https://restcountries.com/v3.1/all",
+    "format": {"type": "json"}
+  },
+  "transform": [
+    {
+      "calculate": "datum.name.common",
+      "as": "country"
+    },
+    {
+      "filter": "datum.population != null"
+    },
+    {
+      "filter": "(datum.country == 'Switzerland' || datum.region != null)"
+    },
+    {
+      "window": [{"op": "rank", "as": "rank"}],
+      "sort": [{"field": "population", "order": "descending"}]
+    },
+    {
+      "filter": "datum.rank <= 10 || datum.country == 'Switzerland'"
+    }
+  ],
+  "mark": {"type": "bar", "color": "blue"},
+  "encoding": {
+    "x": {"field": "country", "type": "nominal", "title": "Country"},
+    "y": {"field": "population", "type": "quantitative", "title": "Population"}
+  }
+}

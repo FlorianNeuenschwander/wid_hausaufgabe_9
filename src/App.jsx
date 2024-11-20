@@ -1,10 +1,18 @@
-import Typography from "@mui/material/Typography";
+import React from "react";
+import { CssBaseline, Container, Typography } from "@mui/material";
+import VegaChart from "./VegaChart";
 
 function App() {
   return (
-    <div>
-      <Typography variant="h1">hallo welt</Typography>
-    </div>
+    <>
+      <CssBaseline />
+      <Container>
+        <Typography variant="h3" align="center" gutterBottom>
+          Vega-Lite Chart App
+        </Typography>
+        <VegaChart />
+      </Container>
+    </>
   );
 }
 
