@@ -9,3 +9,4 @@ Currently, two official plugins are available:
   git clone
   npm install
   npm run dev
+![image](https://github.com/user-attachments/assets/cbba46db-8a69-44b4-8dd7-20fcd0673fee)
